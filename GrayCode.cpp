@@ -7,16 +7,15 @@ int main() {
 
   int n; cin >> n;
   
-  int k = pow(2,n);
+  int total = 1 << n;
 
-  int num=0;
+  for (int i=0; i<total; i++){
+    int gray = i ^ (i >> 1);
 
-  while (k--){
-    for (int i = n-1; i >= 0; i--) {
-      cout << ((num >> i) & 1);
+    for (int j = n-1; j >= 0; j--) {
+      cout << ((gray >> j) & 1);
     }
     cout << "\n";
-    num++;
   }
   return 0;
 }
